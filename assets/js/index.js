@@ -25,17 +25,17 @@ $(document).ready(function () {
 
 
 
-const nav = document.querySelector(".fixedNav");
-window.addEventListener("scroll", fixNav);
+// const nav = document.querySelector(".fixedNav");
+// window.addEventListener("scroll", fixNav);
 
-function fixNav() {
-  if (window.scrollY > nav?.offsetHeight + 150) {
-    nav.classList.add("navbar-active");
-   nav.removeAttribute('clip-path');
-  } else {
-    nav.classList.remove("navbar-active");
-  }
-}
+// function fixNav() {
+//   if (window.scrollY > nav?.offsetHeight + 150) {
+//     nav.classList.add("navbar-active");
+//    nav.removeAttribute('clip-path');
+//   } else {
+//     nav.classList.remove("navbar-active");
+//   }
+// }
 
 
 
