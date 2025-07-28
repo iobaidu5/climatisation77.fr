@@ -5,23 +5,6 @@ $(document).ready(function () {
     .addClass("active");
 });
 
-// window.onscroll = function() {myFunction()};
-
-// var header = document.getElementById("menu");
-// var sticky = header.offsetTop;
-// var placeholderHeight = document.getElementById("menu").clientHeight;
-// var placeholder = document.getElementById("placeHolder");
-
-// function myFunction() {
-//   if (window.pageYOffset > sticky) {
-//     header.classList.add("fixmenu");
-//     placeholder.style.height = placeholderHeight + 'px';
-
-//   } else {
-//     header.classList.remove("fixmenu");
-//     placeholder.style.height = 'auto';
-//   }
-// }
 
 
 
@@ -52,23 +35,42 @@ gtag('js', new Date());
 
 gtag('config', 'UA-136073697-1');
 
-// media query change
-function WidthChange(mq) {
-  if (mq.matches) {
 $(document).ready(function(){
-		$('.bxslider').bxSlider({
-		  minSlides: 3,
-		  auto:true,
-		  speed:1800,
-		  pause:5000,
-		  maxSlides: 3,
-		  slideWidth: 360,
-		  slideMargin: 10
-		});
-	});
-  } 
-
-}
+  // Initialize slider with responsive settings
+  var slider = $('.bxslider').bxSlider({
+      auto: true,
+      speed: 800,
+      pause: 5000,
+      pager: true,
+      controls: true,
+      adaptiveHeight: true,
+      responsive: true,
+      touchEnabled: true,
+      infiniteLoop: true,
+      hideControlOnEnd: false,
+      minSlides: 1,
+      maxSlides: 3,
+      moveSlides: 1,
+      slideWidth: 360,
+      slideMargin: 20,
+      autoHover: true,
+      autoControls: false,
+      useCSS: false,
+      onSliderLoad: function() {
+          // Update controls after load
+          $('.bx-controls-direction a').removeClass('disabled');
+      },
+      onSlideAfter: function() {
+          // Update controls after slide
+          $('.bx-controls-direction a').removeClass('disabled');
+      }
+  });
+  
+  // Handle window resize for better responsiveness
+  $(window).on('resize', function() {
+      slider.reloadSlider();
+  });
+});
 
 $(window).scroll(function(){
                   
@@ -186,3 +188,21 @@ $('.bootstrap-datepicker input').datepicker({
 $('.clockpicker').clockpicker({
   autoclose: true
 });
+
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("menu");
+var sticky = header.offsetTop;
+var placeholderHeight = document.getElementById("menu").clientHeight;
+var placeholder = document.getElementById("placeHolder");
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("fixmenu");
+    placeholder.style.height = placeholderHeight + 'px';
+
+  } else {
+    header.classList.remove("fixmenu");
+    placeholder.style.height = 'auto';
+  }
+}
