@@ -1448,11 +1448,15 @@ legend{
 
 @media screen and (max-width: 720px) {
     .col-flex{
-        gap: 20px
+        gap: 20px;
+        flex-direction: column !important;
+        /* align-items: flex-start; */
     }
 
     .col-img{
         width: 85px;
+        /* display: flex;
+        justify-content: center !important; */
         img{
             width: 50px;
         }
@@ -1463,6 +1467,7 @@ legend{
     .col-flex{
         ul{
             padding-inline-start: 16px;
+            width: 100% !important;
         }
     }
 }

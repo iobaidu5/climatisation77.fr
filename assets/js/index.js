@@ -23,11 +23,11 @@ $(document).ready(function () {
 
 
 	
-if (matchMedia) {
-  var mq = window.matchMedia("(min-width: 768px)");
-  mq.addListener(WidthChange);
-  WidthChange(mq);
-}
+// if (matchMedia) {
+//   var mq = window.matchMedia("(min-width: 768px)");
+//   mq.addListener(WidthChange);
+//   WidthChange(mq);
+// }
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -35,42 +35,29 @@ gtag('js', new Date());
 
 gtag('config', 'UA-136073697-1');
 
+if (matchMedia) {
+  var mq = window.matchMedia("(min-width: 768px)");
+  mq.addListener(WidthChange);
+  WidthChange(mq);
+}
+
+// media query change
+function WidthChange(mq) {
+  if (mq.matches) {
 $(document).ready(function(){
-  // Initialize slider with responsive settings
-  var slider = $('.bxslider').bxSlider({
-      auto: true,
-      speed: 800,
-      pause: 5000,
-      pager: true,
-      controls: true,
-      adaptiveHeight: true,
-      responsive: true,
-      touchEnabled: true,
-      infiniteLoop: true,
-      hideControlOnEnd: false,
-      minSlides: 1,
-      maxSlides: 3,
-      moveSlides: 1,
-      slideWidth: 360,
-      slideMargin: 20,
-      autoHover: true,
-      autoControls: false,
-      useCSS: false,
-      onSliderLoad: function() {
-          // Update controls after load
-          $('.bx-controls-direction a').removeClass('disabled');
-      },
-      onSlideAfter: function() {
-          // Update controls after slide
-          $('.bx-controls-direction a').removeClass('disabled');
-      }
-  });
-  
-  // Handle window resize for better responsiveness
-  $(window).on('resize', function() {
-      slider.reloadSlider();
-  });
-});
+		$('.bxslider').bxSlider({
+		  minSlides: 3,
+		  auto:true,
+		  speed:1800,
+		  pause:5000,
+		  maxSlides: 3,
+		  slideWidth: 360,
+		  slideMargin: 10
+		});
+	});
+  } 
+
+}
 
 $(window).scroll(function(){
                   
@@ -178,16 +165,6 @@ console.log($.fn.fadeIn);
 
 });
 
-$('.bootstrap-datepicker input').datepicker({
-  todayBtn: "linked",
-  language: "fr",
-  autoclose: true,
-  todayHighlight: true
-});
-
-$('.clockpicker').clockpicker({
-  autoclose: true
-});
 
 window.onscroll = function() {myFunction()};
 
@@ -206,3 +183,14 @@ function myFunction() {
     placeholder.style.height = 'auto';
   }
 }
+
+$('.bootstrap-datepicker input').datepicker({
+  todayBtn: "linked",
+  language: "fr",
+  autoclose: true,
+  todayHighlight: true
+});
+
+$('.clockpicker').clockpicker({
+  autoclose: true
+});

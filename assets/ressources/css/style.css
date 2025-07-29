@@ -1,7 +1,28 @@
 html{
   scroll-behavior: smooth !important;
+  overflow-x: hidden !important;
 }
 
+body{
+  overflow-x: hidden !important;
+}
+
+.mx-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.px-0{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.bx-pager-item{
+  display: flex !important;
+  justify-content: center !important;
+}
+
+ 
 
 section.seo{
 	padding: 70px 0 70px;
