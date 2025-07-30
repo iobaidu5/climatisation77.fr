@@ -44,20 +44,64 @@ if (matchMedia) {
 // media query change
 function WidthChange(mq) {
   if (mq.matches) {
-$(document).ready(function(){
-		$('.bxslider').bxSlider({
-		  minSlides: 3,
-		  auto:true,
-		  speed:1800,
-		  pause:5000,
-		  maxSlides: 3,
-		  slideWidth: 360,
-		  slideMargin: 10
-		});
-	});
-  } 
+    $(document).ready(function () {
+      let slider;
+      const width = window.innerWidth;
 
+      let minSlides = 3;
+      let maxSlides = 3;
+
+      if (width < 768) {
+        minSlides = 1;
+        maxSlides = 1;
+      } else if (width < 992) {
+        minSlides = 2;
+        maxSlides = 2;
+      }
+
+      slider = $('.bxslider').bxSlider({
+        minSlides: minSlides,
+        maxSlides: maxSlides,
+        auto: true,
+        speed: 1800,
+        pause: 5000,
+        slideWidth: 360,
+        slideMargin: 10,
+      });
+
+      $(window).on('resize', function () {
+        const newWidth = window.innerWidth;
+        let newMinSlides = 3;
+        let newMaxSlides = 3;
+
+        if (newWidth < 768) {
+          newMinSlides = 1;
+          newMaxSlides = 1;
+        } else if (newWidth < 992) {
+          newMinSlides = 2;
+          newMaxSlides = 2;
+        }
+
+        // Reinitialize only if values changed
+        if (newMinSlides !== minSlides || newMaxSlides !== maxSlides) {
+          slider.destroySlider();
+          slider = $('.bxslider').bxSlider({
+            minSlides: newMinSlides,
+            maxSlides: newMaxSlides,
+            auto: true,
+            speed: 1800,
+            pause: 5000,
+            slideWidth: 360,
+            slideMargin: 10,
+          });
+          minSlides = newMinSlides;
+          maxSlides = newMaxSlides;
+        }
+      });
+    });
+  }
 }
+
 
 $(window).scroll(function(){
                   
