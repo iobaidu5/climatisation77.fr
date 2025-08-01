@@ -1503,3 +1503,7 @@ legend{
         color: inherit;
     }
 }
+
+ol, ul {
+  margin-left: 10px !important;
+}
