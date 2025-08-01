@@ -1218,7 +1218,7 @@ footer h3{
 }
 
 
-@media (max-width: 1200px){
+@media (max-width: 990px){
     .bg-header-grey
     {
         display: unset!important; 
